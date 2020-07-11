@@ -1,0 +1,18 @@
+.Side-bar
+  .Side-bar__user-name
+    .Top-items
+      .Top-items__name member1
+      %ul.Top-items__icons
+        %li 
+          =link_to "#" do
+            =icon('fas', 'edit', class: 'icon')
+        %li
+          =link_to "#" do
+            =icon('fas', 'cog', class: 'icon')
+  .Side-bar__group-list
+    .Bottom-items
+      .Bottom-items__group techcamp
+      .Bottom-items__message まだメッセージがありません
+    .Bottom-items
+      .Bottom-items__group techexpert
+      .Bottom-items__message まだメッセージがありません
