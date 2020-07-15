@@ -24,7 +24,7 @@ Things you may want to cover:
 * ...
 
 # ChatSpace DB設計
-## usersテーブル
+## userテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true|
@@ -40,11 +40,11 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false, unique: true|
 ### Association
-- has_many :users_groups
-- has_many :users, through: :users_groups
+- has_many :group_users
+- has_many :users, through: :group_users
 - has_many :messages
 
-## users_groupsテーブル
+## group_userテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
