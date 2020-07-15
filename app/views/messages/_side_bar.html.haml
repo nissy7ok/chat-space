@@ -11,11 +11,10 @@
           =link_to edit_user_path(current_user) do
             =icon('fas', 'cog', class: 'icon')
   .Side-bar__group-list
-    .Bottom-items
-      .Bottom-items__group techcamp
-      .Bottom-items__message まだメッセージがありません
-    .Bottom-items
-      .Bottom-items__group techexpert
-      .Bottom-items__message まだメッセージがありません
-
-      
+    - current_user.groups.each do |group|
+      .Bottom-items
+        = link_to '#' do
+          .Bottom-items__group
+            = group.name
+          .Bottom-items__message
+            メッセージはまだありません
