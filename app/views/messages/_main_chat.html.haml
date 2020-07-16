@@ -29,10 +29,10 @@
       .Message-box__message
         雨の日が続きますね
   .Main-chat__message-form
-    = form_with url: '#', class: "Form" do |f|
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
       .Textarea
         = f.text_field :message, class: "Textarea__message", placeholder: "type a message"
-        %label
+        = f.label :image do
           =icon('far', 'image', class: "Textarea__icon")
-          %input{type: "file", class: "Textarea__file"}
-      = f.submit class: "Form__submit", value: "Send"
+          = f.file_field :image, class: "Textarea__file"
+      = f.submit 'Send', class: "Form__submit"
