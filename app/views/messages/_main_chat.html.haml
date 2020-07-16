@@ -12,22 +12,7 @@
       = link_to "#", class: "Right-items__edit-btn" do
         Edit
   .Main-chat__message-list
-    .Message-box
-      .Message-info
-        .Message-info__user-name
-          member1
-        .Message-info__date
-          2020年07月11日 15時03分
-      .Message-box__message
-        こんにちは
-    .Message-box
-      .Message-info
-        .Message-info__user-name
-          member2
-        .Message-info__date
-          2020年07月11日 15時05分
-      .Message-box__message
-        雨の日が続きますね
+    = render @messages
   .Main-chat__message-form
     = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
       .Textarea
