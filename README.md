@@ -58,8 +58,8 @@ Things you may want to cover:
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
 |group|references|null: false, foreign_key: true|
-|message|text||
-|image|text||
+|message|string||
+|image|string||
 ### Association
 - belongs_to :user
 - belongs_to :group
