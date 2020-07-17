@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+.field_with_errors {
+  display: contents;
+}
+
 .wrapper {
   display: flex;
 }
@@ -53,7 +57,7 @@
       }
       & a {
         text-decoration: none;
-        color: #ffffff        
+        color: #ffffff
       }
     }
   }
@@ -102,6 +106,7 @@
     height: calc(100vh - 190px);
     padding: 35px 40px 0;
     background-color: #fafafa;
+    overflow: scroll;
     .Message-box {
       margin-bottom: 46px;
       .Message-info {

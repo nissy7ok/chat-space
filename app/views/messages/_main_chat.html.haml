@@ -1,38 +1,23 @@
 .Main-chat
   .Main-chat__group-info
     .Left-items
-      .Left-items__group techcamp
+      .Left-items__group
+        = @group.name
       %ul.Left-items__member-list
         Member：
-        %li.Left-items__member
-          member1
-        %li.Left-items__member
-          member2
+        - @group.users.each do |user|
+          %li.Left-items__member
+            = user.name
     .Right-items
-      = link_to "#", class: "Right-items__edit-btn" do
+      = link_to edit_group_path(@group), class: "Right-items__edit-btn" do
         Edit
   .Main-chat__message-list
-    .Message-box
-      .Message-info
-        .Message-info__user-name
-          member1
-        .Message-info__date
-          2020年07月11日 15時03分
-      .Message-box__message
-        こんにちは
-    .Message-box
-      .Message-info
-        .Message-info__user-name
-          member2
-        .Message-info__date
-          2020年07月11日 15時05分
-      .Message-box__message
-        雨の日が続きますね
+    = render @messages
   .Main-chat__message-form
-    = form_with url: '#', class: "Form" do |f|
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
       .Textarea
         = f.text_field :message, class: "Textarea__message", placeholder: "type a message"
-        %label
-          =icon('far', 'image', class: "Textarea__icon")
-          %input{type: "file", class: "Textarea__file"}
-      = f.submit class: "Form__submit", value: "Send"
+        = f.label :image do
+          = icon('far', 'image', class: "Textarea__icon")
+          = f.file_field :image, class: "Textarea__file"
+      = f.submit 'Send', class: "Form__submit"
