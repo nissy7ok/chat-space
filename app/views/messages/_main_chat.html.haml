@@ -1,15 +1,15 @@
 .Main-chat
   .Main-chat__group-info
     .Left-items
-      .Left-items__group techcamp
+      .Left-items__group
+        = @group.name
       %ul.Left-items__member-list
         Member：
-        %li.Left-items__member
-          member1
-        %li.Left-items__member
-          member2
+        - @group.users.each do |user|
+          %li.Left-items__member
+            = user.name
     .Right-items
-      = link_to "#", class: "Right-items__edit-btn" do
+      = link_to edit_group_path(@group), class: "Right-items__edit-btn" do
         Edit
   .Main-chat__message-list
     = render @messages
