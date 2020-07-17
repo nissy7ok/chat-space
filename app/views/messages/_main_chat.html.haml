@@ -18,6 +18,6 @@
       .Textarea
         = f.text_field :message, class: "Textarea__message", placeholder: "type a message"
         = f.label :image do
-          =icon('far', 'image', class: "Textarea__icon")
+          = icon('far', 'image', class: "Textarea__icon")
           = f.file_field :image, class: "Textarea__file"
       = f.submit 'Send', class: "Form__submit"
