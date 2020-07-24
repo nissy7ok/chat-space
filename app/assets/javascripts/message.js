@@ -14,7 +14,7 @@ $(function() {
           <p class="Message-box__message">
             ${message.message}
           </p>
-          <img class="Message__image" src="${message.image}">
+          <img class="Message-box__image" src="${message.image}">
         </div>` 
       return html;
     } else {
@@ -52,7 +52,7 @@ $(function() {
       $('.Main-chat__message-list').append(html);
       $('.Main-chat__message-list').animate({ scrollTop: $('.Main-chat__message-list')[0].scrollHeight});
       $('form')[0].reset();
-      $('form').prop('disabled', false);
+      $('input').prop('disabled', false);
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
