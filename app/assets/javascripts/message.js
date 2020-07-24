@@ -1,3 +1,6 @@
-$(function(){
-  console.log("message.js読み込み成功")
+$(function() {
+  $('.Form').on('submit', function(e) {
+    e.preventDefault()
+    console.log("フォームの送信を確認");
+  })
 });
