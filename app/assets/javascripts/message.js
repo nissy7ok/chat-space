@@ -49,6 +49,8 @@ $(function() {
     })
     .done(function(data){
       let html = buildHTML(data);
+      $('.Main-chat__message-list').append(html);
+      $('.Form')[0].reset();
     })
   })
 });
