@@ -32,8 +32,8 @@ $(function() {
           ${message.message}
           </p>
           </div>`
-      return html
-    }
+      return html;
+    };
   }
   $('.Form').on('submit', function(e) {
     e.preventDefault()
@@ -58,26 +58,4 @@ $(function() {
       alert("メッセージ送信に失敗しました");
     });
   })
-  let reloadMessages = function() {
-    let last_message_id = $('.Message-box:last').data("message-id") || 0;
-    $.ajax({
-      url: "api/messages",
-      type: 'get',
-      dataType: 'json',
-      data: {id: last_message_id}
-    })
-    .done(function(messages) {
-      if (messages.length !== 0) {
-        let insertHTML = '';
-        $.each(messages, function(i, message) {
-          insertHTML += buildHTML(message)
-        });
-        $('.Main-chat__message-list').append(insertHTML);
-      }
-    })
-    .fail(function() {
-      alert('error');
-    });
-  };
-  setInterval(reloadMessages, 7000);
 });
